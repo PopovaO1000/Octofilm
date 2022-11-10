@@ -1,22 +1,26 @@
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const con = require('mysql');
+import express from 'express';
+import cors from 'cors';
+import bodyParser from "body-parser";
+import cookieParser from 'cookie-parser';
 import router from "./router.js";
 
 const PORT = 3001;
 const app = express();
-const db = con.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'octofilm'
-});
 
 app.use(express.json());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.use('/api',router);
 
+// app.post('/api/auth', (req,res)=>{
+//     console.log('bkussss');
+// });
 
 const start = async () => {
     try {
