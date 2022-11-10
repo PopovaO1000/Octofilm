@@ -1,0 +1,93 @@
+.AuthMain{
+    padding-left: 3vw;
+    height: 35vw;
+}
+
+.AuthMain>h1{
+    font-size: 3vw;
+}
+
+.AuthMain>form{
+    margin-left: 3vw;
+    padding-top: 1.3vw;
+    padding-left: 3vw;
+    padding-bottom: 1.3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30vw;
+    height: 20vw;
+    border-radius: 1vw;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.AuthMain>form>label{
+    font-size: 1.4vw;
+    color: #271C54;
+}
+
+.AuthMain>form>input:not(input[type="submit"]){
+    border: none;
+    border-radius: .8vw;
+    height: 3.8vw;
+    width: 25vw;
+    color: #271C54;
+    font-size: 1.2vw;
+    padding-left: 1vw;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.AuthMain>form>input:focus{
+    outline: solid .1vw #271C54;
+    background: rgba(255, 255, 255, 1);
+}
+
+.AuthMain>form>input::placeholder{
+    color: rgba(39, 28, 84, 0.36);
+    padding-left: 1vw;
+    font-size: 1.2vw;
+}
+
+.AuthMain>form>input[type="submit"]{
+    border: none;
+    border-radius: .8vw;
+    width: 6vw;
+    height: 3vw;
+    align-self: flex-end;
+    margin-right: 2vw;
+    color: white;
+    background: #9747FF;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.AuthMain>form>input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+.AuthMain>a{
+    display: block;
+    text-decoration: none;
+    color: #271C54;
+    font-size: 1.3vw;
+    margin-top: 1vw;
+    margin-left: 3vw;
+    width: 8.3vw;
+}
+
+.AuthMain a:hover{
+    text-decoration: underline;
+}
+
+.RegMain{
+    height: 56vw;
+}
+
+.RegMain>form{
+    height: 40vw;
+}
+
+.RegMain>form>input[type="submit"]{
+    margin-top: 1vw;
+}

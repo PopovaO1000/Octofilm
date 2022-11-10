@@ -1,0 +1,128 @@
+body{
+    background-color: #BCC5E4;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+}
+
+#root{
+    height: 100vh;
+}
+
+.App{
+    height: 100vh;
+}
+
+#fistHeader{
+    background-image: url("../serdse_parmi.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vw;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.first_gradient{
+    position: absolute;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(39, 28, 84, 0.67) 0%, rgba(39, 28, 84, 0) 27.78%);
+    width: 100vw;
+    height: 40vw;
+}
+
+.second_gradient{
+    position: absolute;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    z-index: 1;
+    background: linear-gradient(1.56deg, #271C54 11.97%, rgba(39, 28, 84, 0) 106.06%);
+    width: 100vw;
+    height: 40vw;
+}
+
+#fistHeader a{
+    text-decoration: none;
+    color: white;
+    transition: color linear .2s;
+}
+
+#fistHeader a:hover{
+    color: #B99FAA;
+}
+
+.main_logo{
+    width: 8vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+.main_logo_ref{
+    grid-row-start: 3;
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
+}
+
+.main_auth_block{
+    text-align: right;
+    padding: 2vw;
+    grid-column-start: 3;
+    z-index: 2;
+    font-size: 1vw;
+}
+
+.main_nav{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 20vw;
+    z-index: 2;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.main_nav::after{
+    content: "";
+    display: block;
+    width: 60vw;
+    height: .01vw;
+    min-height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 62%;
+}
+
+.main_nav>a{
+    font-size: 1.2vw;
+}
+
+.main_slider_buttons{
+    grid-row-start: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2vw;
+    padding-right: 6vw;
+    z-index: 2;
+}
+
+.main_slider_button{
+    padding: 0;
+    display: block;
+    margin-left: .3vw;
+    border-radius: 50%;
+    width: .8vw;
+    height: .8vw;
+    border: white solid .1vw;
+    background-color: rgba(0,0,0,0);
+}
+
+.active_slider_button{
+    background-color: white;
+}

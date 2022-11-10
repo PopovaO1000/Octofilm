@@ -1,0 +1,30 @@
+footer{
+    background-color: #271C54;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    position: sticky;
+    top: 100vh;
+}
+
+.footer_icons{
+    padding-top: 2vw;
+    display: flex;
+    justify-content: space-between;
+    width: 15vw;
+    padding-right: 3vw;
+}
+
+.footer_icons>a>img{
+    width: 2vw;
+}
+
+address{
+    text-align: center;
+    font-style: normal;
+    font-size: 1vw;
+    color: rgba(255, 255, 255, 0.29);
+    padding-right: 3vw;
+}
