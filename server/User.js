@@ -1,4 +1,4 @@
-import con from "mysql";
+import con from "mysql2";
 
 const db = con.createPool({
     host: 'localhost',
@@ -8,18 +8,13 @@ const db = con.createPool({
 });
 
 class User{
-     authUser({login, pwd}){
+    authUser({login, pwd}){
         db.query("SELECT * FROM `users` WHERE `login` = ? AND `pwd` = ?",[login, pwd], (err,result)=>{
             if(err){
-                return (
-                    err
-                );
-            };
+                return err;
+            }
             if(result){
-                console.log(result);
-                return(
-                    result
-                );
+                return result;
             }
         });
     }
