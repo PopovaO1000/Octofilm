@@ -18,15 +18,10 @@ import ScheduleMain from "./components/ScheduleMain";
 
 function App() {
     const cookie = new Cookies();
-    const [id,setId] = useState('');
-    const strCookie = cookie.get('id')+'';
-    if(cookie.get('id') && id==''){
-        setId(''+cookie.get('id'));
-    }
     let header = <SecondHeader Id={cookie.get('id')}/>;
     let location = useLocation();
     if(location.pathname == '/'){
-        header = <Header/>;
+        header = <Header Id={cookie.get('id')}/>;
     };
   return (
     <div className="App">

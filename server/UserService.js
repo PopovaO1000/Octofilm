@@ -10,6 +10,20 @@ class UserService {
             return g;
         }
         catch (e){
+            return "Ошибка авторизации";
+        }
+    }
+    async regUser(clientData){
+        try{
+            let g;
+            await User.regUser(clientData).then(()=>{
+              User.authUser(clientData).then(a=>{
+                  g = a;
+              });
+            });
+            return g;
+        }
+        catch (e){
             return e;
         }
     }

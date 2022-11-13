@@ -2,14 +2,18 @@ import '../css/header.css';
 import logo from '../logo.png';
 import {Link} from "react-router-dom";
 
-function Header() {
+function Header(props) {
+    let link = <Link to="/auth">Войти</Link>;
+    if(props.Id !== undefined){
+        link = <Link to="/profile">Профиль</Link>;
+    }
     return (
         //header - бэкграунд -картинка
         <header id="fistHeader">
             <div className="first_gradient"></div>
             <div className="second_gradient"></div>
             <div className="main_auth_block">
-                <Link to="/auth">Войти</Link>
+                {link}
             </div>
             <nav className="main_nav">
                 <Link to="/news">Новости</Link>

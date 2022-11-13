@@ -3,9 +3,9 @@ import logo from '../logo.png';
 import {Link} from "react-router-dom";
 
 function Header(props) {
-    let text = 'Войти';
-    if(props.Id != 0){
-        text = 'Профиль';
+    let link = <Link to="/auth" className="auth_link">Войти</Link>;
+    if(props.Id !== undefined){
+        link = <Link to="/auth" className="auth_link">Профиль</Link>;
     }
     return (
         <header id="secondHeader">
@@ -14,7 +14,7 @@ function Header(props) {
             <Link to="/schedule">Расписание</Link>
             <Link to="/films">Фильмы</Link>
             <Link to="/contacts">Контакты</Link>
-            <Link to="/auth" className="auth_link">{props.Id}</Link>
+            {link}
         </header>
     );
 }

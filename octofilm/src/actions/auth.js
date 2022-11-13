@@ -1,12 +1,35 @@
 import axios from "axios";
 
-export const auth = (data) => {
+export const auth = async (data) => {
+    let returnVal;
     axios.defaults.withCredentials = true;
-    axios.post('http://localhost:3001/api/auth',data)
+    await axios.post('http://localhost:3001/api/auth',data)
     .then((res)=>{
-        console.log(res);
+        if(res.data.message){
+            returnVal = true;
+            alert(res.data.message);
+        }
     })
-    .catch((err)=>{
-        console.log(err);
-    });
+        .catch((err)=>{
+            returnVal = true;
+            alert("Ошибка соединения");
+        });
+    return returnVal
+}
+
+export const reg = (data) => {
+    let returnVal;
+    axios.defaults.withCredentials = true;
+    axios.post('http://localhost:3001/api/reg',data)
+        .then((res)=>{
+            if(res.data.message){
+                returnVal = true;
+                alert(res.data.message);
+            }
+        })
+        .catch((err)=>{
+            returnVal = true;
+            alert("Ошибка соединения");
+        });
+    return returnVal
 }
