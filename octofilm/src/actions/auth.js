@@ -17,10 +17,10 @@ export const auth = async (data) => {
     return returnVal
 }
 
-export const reg = (data) => {
+export const reg = async (data) => {
     let returnVal;
     axios.defaults.withCredentials = true;
-    axios.post('http://localhost:3001/api/reg',data)
+    await axios.post('http://localhost:3001/api/reg',data)
         .then((res)=>{
             if(res.data.message){
                 returnVal = true;

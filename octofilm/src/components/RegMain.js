@@ -11,15 +11,18 @@ function RegMain() {
             e.preventDefault();
             const formData = new FormData(myForm);
             const formDataValues = {
-                fio: formData.get('login'),
+                fio: formData.get('fio'),
                 login: formData.get('login'),
                 email: formData.get('email'),
                 pwd: formData.get('pwd'),
                 pwd2: formData.get('pwd2')
             };
-            reg(formDataValues);
-            // redirect('/');
-            // window.location.reload();
+            reg(formDataValues).then(a=>{
+                if(!a){
+                    redirect('/');
+                    window.location.reload();
+                }
+            });
 
         });
     };
@@ -28,7 +31,7 @@ function RegMain() {
             <h1>Регистрация</h1>
             <form id="auth_form">
                 <label>ФИО<sup>*</sup></label>
-                <input type="text" name="fio" placeholder="Введите логин"/>
+                <input type="text" name="fio" placeholder="Введите имя"/>
                 <label>Логин<sup>*</sup></label>
                 <input type="text" name="login" placeholder="Введите логин"/>
                 <label>Почта<sup>*</sup></label>

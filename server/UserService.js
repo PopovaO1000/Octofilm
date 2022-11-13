@@ -16,10 +16,13 @@ class UserService {
     async regUser(clientData){
         try{
             let g;
-            await User.regUser(clientData).then(()=>{
-              User.authUser(clientData).then(a=>{
-                  g = a;
-              });
+            await User.regUser(clientData).then(async (a)=>{
+                g = a;
+                if(!a){
+                    await User.authUser(clientData).then(a=>{
+                        g = a;
+                    });
+                }
             });
             return g;
         }

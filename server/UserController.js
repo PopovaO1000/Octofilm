@@ -22,8 +22,13 @@ class UserController{
         try{
             const {fio, login, email, pwd, pwd2} = req.body;
             UserService.regUser({fio, login, email, pwd, pwd2}).then(a=>{
-                // res.cookie('id',a[0].id_user,{maxAge: 1*24*60*60*1000});
-                res.send();
+                if(typeof a == "string"){
+                    res.send({message:a});
+                }
+                else{
+                    res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
+                    res.send();
+                }
             });
         }
         catch (e){
