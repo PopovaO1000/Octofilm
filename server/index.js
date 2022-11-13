@@ -3,6 +3,7 @@ import cors from 'cors';
 import bodyParser from "body-parser";
 import cookieParser from 'cookie-parser';
 import router from "./router.js";
+import routerFilms from "./routerFilms.js";
 
 const PORT = 3001;
 const app = express();
@@ -18,10 +19,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use('/api',router);
+app.use('/films',routerFilms);
 
-// app.post('/api/auth', (req,res)=>{
-//     console.log('bkussss');
-// });
 
 const start = async () => {
     try {
