@@ -1,11 +1,13 @@
 import User from "./User.js";
 
 class UserService {
-    authUser(clientData){
+    async authUser(clientData){
         try{
-            const user = User.authUser(clientData);
-            console.log(user);
-            return user;
+            let g;
+            await User.authUser(clientData).then(a=>{
+                g = a;
+            });
+            return g;
         }
         catch (e){
             return e;

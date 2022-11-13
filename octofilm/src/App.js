@@ -2,6 +2,7 @@ import { Route, Link, Routes } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import {useEffect, useState} from "react";
 import { useLocation } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 import './css/fonts.css';
 import Header from "./components/Header";
@@ -16,7 +17,13 @@ import FilmsMain from "./components/FilmsMain";
 import ScheduleMain from "./components/ScheduleMain";
 
 function App() {
-    let header = <SecondHeader/>;
+    const cookie = new Cookies();
+    const [id,setId] = useState('');
+    const strCookie = cookie.get('id')+'';
+    if(cookie.get('id') && id==''){
+        setId(''+cookie.get('id'));
+    }
+    let header = <SecondHeader Id={cookie.get('id')}/>;
     let location = useLocation();
     if(location.pathname == '/'){
         header = <Header/>;

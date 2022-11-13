@@ -1,22 +1,14 @@
-import con from "mysql2";
+import promise from "mysql2/promise";
+import bluebird from "bluebird";
 
-const db = con.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'octofilm'
-});
 
 class User{
-    authUser({login, pwd}){
-        db.query("SELECT * FROM `users` WHERE `login` = ? AND `pwd` = ?",[login, pwd], (err,result)=>{
-            if(err){
-                return err;
-            }
-            if(result){
-                return result;
-            }
-        });
+    async authUser({login, pwd}){
+// create the connection, specify bluebird as Promise
+        const connection = await promise.createConnection({host:'localhost', user: 'root',password: '', database: 'octofilm', Promise: bluebird});
+// query database
+        const [rows, fields] = await connection.execute("SELECT * FROM `users` WHERE `login` = ? AND `pwd` = ?",[login, pwd]);
+        return rows;
     }
 }
 
