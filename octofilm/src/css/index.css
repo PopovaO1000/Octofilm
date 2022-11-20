@@ -144,7 +144,7 @@
 
 .film_pic{
     width: 15vw;
-    height: 20vw;
+    height: 21vw;
     border-radius: 1vw;
 }
 
@@ -159,17 +159,20 @@
     width: 40vw;
 }
 
-.ScheduleMain>section:nth-child(1) a{
+.ScheduleMain>section:nth-child(1) button{
     color: #515151;
     font-size: 1vw;
     text-transform: uppercase;
+    border: none;
+    background-color: rgba(1,1,1,0);
 }
 
 .is_chosen{
     display: block;
-    border: .1vw solid #9747FF;
+    border: .1vw solid #9747FF !important;
     color: #9747FF !important;
     padding: .3vw;
+    text-transform: uppercase;
 }
 
 .schedule_disc>p:nth-child(1){

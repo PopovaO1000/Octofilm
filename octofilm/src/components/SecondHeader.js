@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 function Header(props) {
     let link = <Link to="/auth" className="auth_link">Войти</Link>;
     if(props.Id !== undefined){
-        link = <Link to="/auth" className="auth_link">Профиль</Link>;
+        link = <Link to="/profile" className="auth_link">Профиль</Link>;
     }
     return (
         <header id="secondHeader">

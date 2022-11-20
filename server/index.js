@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import router from "./router.js";
 import routerFilms from "./routerFilms.js";
 import routerNews from "./routerNews.js";
+import routerSchedule from "./routerSchedule.js";
 
 const PORT = 3001;
 const app = express();
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api',router);
 app.use('/films',routerFilms);
 app.use('/news',routerNews);
+app.use('/schedule',routerSchedule);
 
 
 const start = async () => {

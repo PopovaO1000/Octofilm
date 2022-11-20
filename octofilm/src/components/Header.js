@@ -17,7 +17,7 @@ function Header(props) {
             </div>
             <nav className="main_nav">
                 <Link to="/news">Новости</Link>
-                <Link to="/schedule">Расписание</Link>
+                <Link to="/schedule?date=default">Расписание</Link>
                 <Link to="/films">Фильмы</Link>
                 <Link to="/contacts">Контакты</Link>
             </nav>
