@@ -275,3 +275,25 @@
     padding-left: 1vw;
     margin: 0;
 }
+
+.News_One{
+    display: grid;
+    grid-template-columns: 45vw 50vw;
+}
+
+.News_One>h2{
+    font-size: 2vw;
+}
+
+.News_One>p{
+    font-size: 1vw;
+}
+
+.News_One>img{
+    width: 40vw;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    align-self: center;
+}

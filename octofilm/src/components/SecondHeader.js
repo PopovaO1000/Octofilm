@@ -11,7 +11,7 @@ function Header(props) {
         <header id="secondHeader">
             <Link to="/"><img className="header2_logo" src={logo}/></Link>
             <Link to="/news">Новости</Link>
-            <Link to="/schedule">Расписание</Link>
+            <Link to="/schedule?date=default">Расписание</Link>
             <Link to="/films">Фильмы</Link>
             <Link to="/contacts">Контакты</Link>
             {link}

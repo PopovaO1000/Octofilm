@@ -6,6 +6,11 @@ class NewsController{
             res.send({message: result});
         });
     }
+    getOne(req,res){
+        NewsService.getOne(req.query.id).then((result)=>{
+            res.send({message: result});
+        });
+    }
 }
 
 export default new NewsController();

@@ -8,6 +8,13 @@ class NewsService{
         });
         return returnVal;
     }
+    async getOne(id){
+        let returnVal;
+        await News.getOne(id).then((result)=>{
+            returnVal = result;
+        });
+        return returnVal;
+    }
 }
 
 export default new NewsService();

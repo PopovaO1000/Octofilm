@@ -14,12 +14,12 @@ function NewsMain() {
                             backgroundImage: 'url('+require(`../img/${news.img}`)+')'
                         }
                         return(
-                            <Link className="News_first" style={style} key={news.id_news}><div className="news_text">{news.name}</div></Link>
+                            <Link className="News_first" style={style} key={news.id_news} to={`../news/one?id=${news.id_news}`}><div className="news_text">{news.name}</div></Link>
                         )
                     }
                     else {
                         return(
-                            <Link key={news.id_news}>
+                            <Link key={news.id_news} to={`../news/one?id=${news.id_news}`}>
                                 <img src={require(`../img/${news.img}`)}/>
                                 <div>
                                     <p>{news.name}</p>

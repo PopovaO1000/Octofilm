@@ -15,6 +15,7 @@ import RegMain from "./components/RegMain";
 import ContactMain from "./components/ContactMain";
 import FilmsMain from "./components/FilmsMain";
 import ScheduleMain from "./components/ScheduleMain";
+import OneNewsMain from "./components/OneNewsMain";
 
 function App() {
     const cookie = new Cookies();
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/contacts" element={<ContactMain />} />
                     <Route path="/films" element={<FilmsMain />} />
                     <Route path="/schedule" element={<ScheduleMain />} />
+                    <Route path="/news/:one" element={<OneNewsMain />} />
                 </Routes>
             </div>
             <Footer/>
