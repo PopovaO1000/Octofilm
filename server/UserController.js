@@ -10,6 +10,9 @@ class UserController{
                 }
                 else{
                     res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
+                    res.cookie('name',a.name,{maxAge: 1*24*60*60*1000});
+                    res.cookie('email',a.email,{maxAge: 1*24*60*60*1000});
+                    res.cookie('login',a.login,{maxAge: 1*24*60*60*1000});
                     res.send();
                 }
             });
@@ -27,6 +30,26 @@ class UserController{
                 }
                 else{
                     res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
+                    res.send();
+                }
+            });
+        }
+        catch (e){
+            return res.status(500).json(e.message);
+        }
+    }
+    updateUser(req, res){
+        try{
+            const {fio, login, email, pwd} = req.body;
+            const id = req.cookies.id;
+            UserService.updateUser({fio, login, email, pwd, id}).then(a=>{
+                if(typeof a == "string"){
+                    res.send({message:a});
+                }
+                else{
+                    res.cookie('name',a.name,{maxAge: 1*24*60*60*1000});
+                    res.cookie('email',a.email,{maxAge: 1*24*60*60*1000});
+                    res.cookie('login',a.login,{maxAge: 1*24*60*60*1000});
                     res.send();
                 }
             });

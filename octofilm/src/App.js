@@ -17,6 +17,7 @@ import FilmsMain from "./components/FilmsMain";
 import ScheduleMain from "./components/ScheduleMain";
 import OneNewsMain from "./components/OneNewsMain";
 import OneFilmMain from "./components/OneFilmMain";
+import ProfileMain from "./components/ProfileMain";
 
 function App() {
     const cookie = new Cookies();
@@ -39,6 +40,7 @@ function App() {
                     <Route path="/schedule" element={<ScheduleMain />} />
                     <Route path="/news/:one" element={<OneNewsMain />} />
                     <Route path="/films/:one" element={<OneFilmMain />} />
+                    <Route path="/profile" element={<ProfileMain />} />
                 </Routes>
             </div>
             <Footer/>

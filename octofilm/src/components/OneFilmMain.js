@@ -19,7 +19,7 @@ function OneFilmMain() {
                             <p>Режиссер: {film.director}</p>
                             <p>Актеры: {film.actors}</p>
                             <p>Рейтинг: {film.age_rate}+</p>
-                            <p>Синопсис: {film.about}</p>
+                            <p>Описание: {film.about}</p>
                             <iframe width="560" height="315" src={`${film.trailer}`}
                                     title="YouTube video player" frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

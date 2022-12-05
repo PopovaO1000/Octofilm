@@ -30,6 +30,23 @@ class UserService {
             return e;
         }
     }
+    async updateUser(clientData){
+        try{
+            let g;
+            await User.updateUser(clientData).then(async (a)=>{
+                g = a;
+                if(!a){
+                    await User.authUser(clientData).then(a=>{
+                        g = a;
+                    });
+                }
+            });
+            return g;
+        }
+        catch (e){
+            return e;
+        }
+    }
 }
 
 export default new UserService();

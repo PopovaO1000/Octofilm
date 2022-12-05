@@ -33,3 +33,20 @@ export const reg = async (data) => {
         });
     return returnVal
 }
+
+export const update = async (data) => {
+    let returnVal;
+    axios.defaults.withCredentials = true;
+    await axios.post('http://localhost:3001/api/update',data)
+        .then((res)=>{
+            if(res.data.message){
+                returnVal = true;
+                alert(res.data.message);
+            }
+        })
+        .catch((err)=>{
+            returnVal = true;
+            alert("Ошибка соединения");
+        });
+    return returnVal
+}
