@@ -19,6 +19,23 @@ class Films{
             return "Некорректные данные";
         }
     }
+    async getOne(id) {
+        try{
+            // create the connection, specify bluebird as Promise
+            const connection = await promise.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: '',
+                database: 'octofilm',
+                Promise: bluebird
+            });
+// query database
+            const [rows, fields] = await connection.execute("SELECT * FROM `films` WHERE `id_film`= ?",[id]);
+            return rows;
+        } catch (e) {
+            return "Некорректные данные";
+        }
+    }
 }
 
 export default new Films();

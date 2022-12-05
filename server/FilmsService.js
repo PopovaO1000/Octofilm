@@ -8,6 +8,13 @@ class FilmsService{
         });
         return returnVal;
     }
+    async getOne(id){
+        let returnVal;
+        await Films.getOne(id).then((result)=>{
+            returnVal = result;
+        });
+        return returnVal;
+    }
 }
 
 export default new FilmsService();

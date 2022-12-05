@@ -24,7 +24,7 @@ function IndexMain() {
                 }
                 else {
                     return(
-                        <Link key={film.id_film}>
+                        <Link key={film.id_film} to={`../films/one?id=${film.id_film}`}>
                             <img className="index_pic film_pic" src={require(`../img/${film.img_poster}`)}/>
                             <div>
                                 <p>{film.name}</p>

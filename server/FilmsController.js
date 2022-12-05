@@ -6,6 +6,11 @@ class FilmsController{
             res.send({message: result});
         });
     }
+    getOne(req,res){
+        FilmsService.getOne(req.query.id).then((result)=>{
+            res.send({message: result});
+        });
+    }
 
 }
 

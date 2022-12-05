@@ -148,6 +148,32 @@
     border-radius: 1vw;
 }
 
+.Film_One{
+    display: grid;
+    grid-template-columns: 45vw 45vw;
+    padding-bottom: 1vw;
+}
+
+.Film_One>img{
+    width: 40vw;
+    grid-row-start: 1;
+    grid-row-end: 9;
+    display: flex;
+    align-self: center;
+}
+
+.Film_One>iframe{
+    width: 30vw;
+    height: 20vw;
+}
+
+.Film_One>h2{
+    font-size: 2vw;
+}
+
+.Film_One>p{
+    font-size: 1vw;
+}
 /*Schedule*/
 
 .ScheduleMain>section:nth-child(1){
@@ -165,6 +191,7 @@
     text-transform: uppercase;
     border: none;
     background-color: rgba(1,1,1,0);
+    cursor: pointer;
 }
 
 .is_chosen{
@@ -173,6 +200,7 @@
     color: #9747FF !important;
     padding: .3vw;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .schedule_disc>p:nth-child(1){
