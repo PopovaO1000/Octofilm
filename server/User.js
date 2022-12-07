@@ -3,7 +3,7 @@ import bluebird from "bluebird";
 
 
 class User{
-    async authUser({login, pwd}) {
+    async getUser({login}) {
         try {
             // create the connection, specify bluebird as Promise
             const connection = await promise.createConnection({
@@ -14,7 +14,7 @@ class User{
                 Promise: bluebird
             });
 // query database
-            const [rows, fields] = await connection.execute("SELECT * FROM `users` WHERE `login` = ? AND `pwd` = ?", [login, pwd]);
+            const [rows, fields] = await connection.execute("SELECT * FROM `users` WHERE `login` = ?", [login]);
             if(rows[0] === undefined){
                 rows[0] = "Некорректные данные"
             }
@@ -39,7 +39,7 @@ class User{
 // create the connection, specify bluebird as Promise
         const connection = await promise.createConnection({host:'localhost', user: 'root',password: '', database: 'octofilm', Promise: bluebird});
 // query database
-        const [rows, fields] = await connection.execute("UPDATE `users` SET `name`= ?,`login`= ?,`email`= ? WHERE `pwd`= ? AND `id_user` = ?",[fio, login, email, pwd, id]);
+        const [rows, fields] = await connection.execute("UPDATE `users` SET `name`= ?,`login`= ?,`email`= ? WHERE `id_user` = ?",[fio, login, email, id]);
     }
 }
 
