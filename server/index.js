@@ -6,6 +6,7 @@ import router from "./router.js";
 import routerFilms from "./routerFilms.js";
 import routerNews from "./routerNews.js";
 import routerSchedule from "./routerSchedule.js";
+import routerBooking from "./routerBooking.js";
 
 const PORT = 3001;
 const app = express();
@@ -24,6 +25,7 @@ app.use('/api',router);
 app.use('/films',routerFilms);
 app.use('/news',routerNews);
 app.use('/schedule',routerSchedule);
+app.use('/booking',routerBooking);
 
 
 const start = async () => {

@@ -68,9 +68,6 @@ class UserService {
                 });
                 return g;
             }
-            else {
-                console.log('vks')
-            }
         }
         catch (e){
             return e;
