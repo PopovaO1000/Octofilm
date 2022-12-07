@@ -325,3 +325,31 @@
     display: flex;
     align-self: center;
 }
+
+/*Profile*/
+
+.ProfileMain{
+    display: grid;
+    grid-template-rows: 30vw 10vw 40vw;
+    grid-template-columns: 1fr 1fr;
+    height: 100% !important;
+    padding-bottom: 10vw;
+}
+
+.change_pass{
+    grid-row-start: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.change_data{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.h1_profile_data{
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}

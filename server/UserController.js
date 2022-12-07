@@ -58,6 +58,24 @@ class UserController{
             return res.status(500).json(e.message);
         }
     }
+    updateUserPass(req, res){
+        try{
+            const {pwd,pwd2} = req.body;
+            const id = req.cookies.id;
+            const login = req.cookies.login;
+            UserService.updateUserPass({pwd, pwd2, id, login}).then(a=>{
+                if(typeof a == "string"){
+                    res.send({message:a});
+                }
+                else{
+                    res.send();
+                }
+            });
+        }
+        catch (e){
+            return res.status(500).json(e.message);
+        }
+    }
 }
 
 export default new UserController();

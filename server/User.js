@@ -41,6 +41,12 @@ class User{
 // query database
         const [rows, fields] = await connection.execute("UPDATE `users` SET `name`= ?,`login`= ?,`email`= ? WHERE `id_user` = ?",[fio, login, email, id]);
     }
+    async updateUserPass({pwd2, id}){
+// create the connection, specify bluebird as Promise
+        const connection = await promise.createConnection({host:'localhost', user: 'root',password: '', database: 'octofilm', Promise: bluebird});
+// query database
+        const [rows, fields] = await connection.execute("UPDATE `users` SET `pwd`= ? WHERE `id_user` = ?",[pwd2, id]);
+    }
 }
 
 export default new User();

@@ -55,6 +55,27 @@ class UserService {
             return e;
         }
     }
+    async updateUserPass(clientData){
+        try{
+            const passHash = await User.getUser(clientData);
+            if(await compareHash(clientData.pwd, passHash.pwd)){
+                clientData.pwd2 = await createHash(clientData.pwd2);
+                let g;
+                const pwd2 = clientData.pwd2;
+                const id = clientData.id;
+                await User.updateUserPass({pwd2, id}).then(async (a)=>{
+                    g = true;
+                });
+                return g;
+            }
+            else {
+                console.log('vks')
+            }
+        }
+        catch (e){
+            return e;
+        }
+    }
 }
 
 export default new UserService();
