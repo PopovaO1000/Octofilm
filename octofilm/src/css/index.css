@@ -353,3 +353,29 @@
     grid-column-start: 1;
     grid-column-end: 1;
 }
+
+/*Booking*/
+
+.Booking_seats{
+    display: grid;
+    grid-template-columns: repeat(8,4vw);
+    grid-row-gap: 1.5vw;
+    padding-bottom: 1vw;
+}
+
+.seat{
+    width: 3vw;
+    height: 3vw;
+    border-radius: 1vw;
+    background-color: #9747FF;
+    cursor: pointer;
+    border: none;
+}
+
+.is_booked{
+    background-color: #271C54;
+}
+
+.seat_gap{
+grid-column-start: 1;
+}
