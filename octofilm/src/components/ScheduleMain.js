@@ -33,10 +33,9 @@ function ScheduleMain() {
                 })
             );
             setSchedule(seansiFromDB.map((seans)=>{
-                const times =seans.map((innerSeans,i)=>{
-                    if(i>3)
+                const times =seans[4].map((innerSeans,i)=>{
                         return(
-                            <Link key={innerSeans} to={`../booking?film=${seans[1]}&date=${seans[2]}&time=${innerSeans}`}>{innerSeans.substr(0,5)}</Link>
+                            <Link key={innerSeans} to={`../booking?id=${innerSeans.id_seans}`}>{innerSeans.time.substr(0,5)}</Link>
                         )
                 })
                 return(

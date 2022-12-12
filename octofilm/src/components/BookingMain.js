@@ -6,24 +6,37 @@ import {bookingInsert} from "../actions/booking.js";
 
 function BookingMain() {
     const redirect = useNavigate();
+    let [searchParams, setSearchParams] = useSearchParams();
+    const id = searchParams.get('id');
 
     const bookingClick = ()=>{
         const myForm = document.querySelector("form");
         myForm.addEventListener("submit", (e)=> {
             e.preventDefault();
-            const formData = new FormData(myForm);
-            const formDataValues = {
-                email: formData.get('email'),
-                film: formData.get('film'),
-                date: formData.get('date'),
-                time: formData.get('time')
-            };
-            bookingInsert(formDataValues).then(a=>{
-                if(!a){
-                    redirect('/');
-                    window.location.reload();
+            if(localStorage.length === 0){
+                alert("Пожалуйста, выберете места")
+            }
+            else{
+                const formData = new FormData(myForm);
+                let arrMesto = [];
+                for(let mesto in localStorage){
+                    if(mesto === 'length')
+                        break;
+                    arrMesto.push(mesto);
                 }
-            });
+                localStorage.clear();
+                const formDataValues = {
+                    email: formData.get('email'),
+                    id_seans:id,
+                    seatArr: arrMesto
+                };
+                bookingInsert(formDataValues).then(a=>{
+                    if(!a){
+                        redirect('/');
+                        window.location.reload();
+                    }
+                });
+            }
         });
     };
 
@@ -46,13 +59,9 @@ function BookingMain() {
     };
 
    const [booking, setBooking] = useState([]);
-   let [searchParams, setSearchParams] = useSearchParams();
-   const film = searchParams.get('film');
-   const date = searchParams.get('date');
-   const time = searchParams.get('time');
 
    useEffect(()=>{
-      getOneSeans(film,date,time).then((seansObj)=>{
+      getOneSeans(id).then((seansObj)=>{
          const seats = seansObj.zal.split(' ');
          const bookedSeats = seansObj.notFreePlaces;
           setBooking(seats.map((maxSeat,i)=>{
@@ -96,9 +105,6 @@ function BookingMain() {
               </article>
               <article>
                   <form>
-                      <input type="text" value={film} readOnly name="film"/>
-                      <input type="text" value={date} readOnly name="date"/>
-                      <input type="text" value={time} readOnly name="time"/>
                       <input type="text" placeholder="Введите вашу почту" required name="email"/>
                       <input type="submit" onClick={()=>bookingClick()}/>
                   </form>

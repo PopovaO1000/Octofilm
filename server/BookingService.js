@@ -39,6 +39,10 @@ class BookingService{
         return returnVal;
     }
     async insert(clientData){
+        let returnVal;
+        await Booking.insert(clientData).then((result)=>{
+            returnVal = result;
+        });
         return returnVal;
     }
 }

@@ -2,10 +2,8 @@ import BookingService from "./BookingService.js";
 
 class BookingController{
     getOne(req,res){
-        const name = req.query.name;
-        const date = req.query.date;
-        const time = req.query.time;
-        BookingService.getOne({name,date,time}).then((result)=>{
+        const id = req.query.id;
+        BookingService.getOne(id).then((result)=>{
             let returnVal = {
                 zal: result.zal,
                 notFreePlaces: result.mestoArr
@@ -14,8 +12,15 @@ class BookingController{
         });
     }
     insert(req,res){
-        const email = req.body.email;
-        console.log(req.body)
+        const {email,id_seans, seatArr} = req.body;
+        BookingService.insert({email,id_seans, seatArr}).then((result)=>{
+            if(typeof result == "string"){
+                res.send({message:result});
+            }
+            else{
+                res.send();
+            }
+        })
     }
 }
 
