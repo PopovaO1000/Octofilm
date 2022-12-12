@@ -13,6 +13,10 @@ class BookingController{
             res.send({message: returnVal});
         });
     }
+    insert(req,res){
+        const email = req.body.email;
+        console.log(req.body)
+    }
 }
 
 export default new BookingController();

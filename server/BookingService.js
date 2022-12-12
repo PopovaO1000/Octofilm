@@ -38,6 +38,9 @@ class BookingService{
         });
         return returnVal;
     }
+    async insert(clientData){
+        return returnVal;
+    }
 }
 
 export default new BookingService();

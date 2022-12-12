@@ -19,6 +19,7 @@ class ScheduleService{
                     }
                 });
             })
+            console.log(films)
             returnVal = {
                 result: result.rrr,
                 result2: films

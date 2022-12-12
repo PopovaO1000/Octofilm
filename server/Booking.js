@@ -20,6 +20,9 @@ class Booking{
             return "Некорректные данные";
         }
     }
+    async insert({name,date,time}) {
+
+    }
 }
 
 export default new Booking();

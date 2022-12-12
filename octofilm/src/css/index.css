@@ -376,6 +376,10 @@
     background-color: #271C54;
 }
 
+.is_chosen{
+    background-color: #c193ff;
+}
+
 .seat_gap{
 grid-column-start: 1;
 }

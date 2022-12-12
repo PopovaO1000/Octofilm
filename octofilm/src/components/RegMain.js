@@ -23,7 +23,6 @@ function RegMain() {
                     window.location.reload();
                 }
             });
-
         });
     };
     return (
