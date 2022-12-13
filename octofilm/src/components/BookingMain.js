@@ -1,13 +1,15 @@
 import '../css/index.css';
-import {Link, useLocation, useNavigate, useSearchParams} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getOneSeans} from "../actions/outputBooking.js";
 import {bookingInsert} from "../actions/booking.js";
+import Cookies from 'universal-cookie';
 
 function BookingMain() {
     const redirect = useNavigate();
     let [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id');
+    const cookie = new Cookies();
 
     const bookingClick = ()=>{
         const myForm = document.querySelector("form");
@@ -32,6 +34,7 @@ function BookingMain() {
                 };
                 bookingInsert(formDataValues).then(a=>{
                     if(!a){
+                        alert("Места забронированы");
                         redirect('/');
                         window.location.reload();
                     }
@@ -97,15 +100,20 @@ function BookingMain() {
           );
       });
    },[]);
+   let inputEmail =  <input type="email" placeholder="Введите вашу почту" required name="email"/>;
+   if(cookie.get('email') !== undefined){
+       inputEmail =  <input type="email" value={cookie.get('email')} readOnly name="email"/>;
+   }
    return (
-       <main className="NewsMain">
+       <main className="BookingMain">
           <section>
+              <div>Экран</div>
               <article className="Booking_seats">
                   {booking}
               </article>
               <article>
                   <form>
-                      <input type="text" placeholder="Введите вашу почту" required name="email"/>
+                      {inputEmail}
                       <input type="submit" onClick={()=>bookingClick()}/>
                   </form>
               </article>

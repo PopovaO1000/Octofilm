@@ -330,10 +330,59 @@
 
 .ProfileMain{
     display: grid;
-    grid-template-rows: 30vw 10vw 40vw;
+    grid-template-rows: 30vw 10vw 50vw 3vw;
     grid-template-columns: 1fr 1fr;
     height: 100% !important;
-    padding-bottom: 10vw;
+    padding-bottom: 2vw;
+}
+
+.booking_row{
+    padding-top: 1vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1vw;
+    grid-column-gap: 1vw;
+}
+
+.booking{
+    background-color: #9747FF;
+    color: white;
+    text-align: center;
+    border-radius: 1vw;
+    font-size: 1vw;
+    width: 25vw;
+    padding: 1vw;
+    height: 12vw;
+    font-family: 'Nunito', sans-serif;
+}
+
+.booking>button{
+    font-size: 1vw;
+    cursor: pointer;
+    background-color: #271C54;
+    border-radius: .5vw;
+    border: none;
+    color: white;
+    margin-top: 1vw;
+    padding: .5vw;
+    font-family: 'Nunito', sans-serif;
+}
+
+.film_name{
+    font-size: 1.5vw;
+}
+
+.ProfileMain>button{
+    grid-row-start: 4;
+    width: 10vw;
+    margin-left: 3vw;
+    border-radius: .7vw;
+    border: none;
+    background-color: #9747FF;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .change_pass{
@@ -355,12 +404,73 @@
 }
 
 /*Booking*/
+.BookingMain section{
+    padding: 2vw;
+    display: grid;
+    grid-template-rows: 3vw 20vw 20vw;
+    grid-template-columns: 1fr 60vw 1fr;
+}
+
+.BookingMain section>div{
+    font-size: 2vw;
+    text-align: center;
+    grid-column-start: 2;
+    background-color: #271C54;
+    color: white;
+}
 
 .Booking_seats{
+    margin: 0 auto;
+    padding-top: 4vw;
+    grid-row-start: 2;
+    grid-column-start: 2;
     display: grid;
     grid-template-columns: repeat(8,4vw);
     grid-row-gap: 1.5vw;
     padding-bottom: 1vw;
+}
+
+.BookingMain section>article:nth-child(3){
+    display: flex;
+    align-self: end;
+    grid-row-start: 3;
+    grid-column-start: 2;
+}
+
+.BookingMain section>article:nth-child(3)>form{
+    display: flex;
+   flex-direction: column;
+    height: 8vw;
+    justify-content: space-around;
+}
+
+.BookingMain section>article:nth-child(3)>form>input[type="email"]{
+    width: 15vw;
+    height: 3vw;
+    border: none;
+    border-radius: .5vw;
+    font-size: 1.1vw;
+    padding-left: .4vw;
+    color: #271C54;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.BookingMain section>article:nth-child(3)>form>input[type="email"]::placeholder{
+    color: rgba(39, 28, 84, 0.36);
+    padding-left: 1vw;
+    font-size: 1vw;
+}
+
+.BookingMain section>article:nth-child(3)>form>input[type="submit"]{
+    width: 6vw;
+    height: 3vw;
+    border: none;
+    border-radius: .5vw;
+    color: white;
+    background: #9747FF;
+    font-size: 1vw;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .seat{

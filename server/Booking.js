@@ -38,6 +38,38 @@ class Booking{
             return "Некорректные данные";
         }
     }
+    async getUserBookings(email){
+        try{
+            const connection = await promise.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: '',
+                database: 'octofilm',
+                Promise: bluebird
+            });
+            const [rows1, fields1] = await connection.execute("SELECT `booking`.`mesto` AS `mesto`, `booking`.`id_booking` AS `id_booking`, `booking`.`cost` AS `cost`, `films`.`name` AS `film_name`, `zal`.`name` AS `zal_name`, `seansi`.`time` AS `time`, `seansi`.`date` AS `date`  FROM `booking` LEFT JOIN `seansi` ON `booking`.`id_seans` = `seansi`.`id_seans` LEFT JOIN `films` ON `seansi`.`id_film` = `films`.`id_film` LEFT JOIN `zal` ON `seansi`.`id_zal` = `zal`.`id_zal` WHERE `mail` = ?", [email]);
+            return rows1;
+        }
+        catch (e){
+            return "Некорректные данные";
+        }
+    }
+    async deleteBooking(id){
+        try{
+            const connection = await promise.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: '',
+                database: 'octofilm',
+                Promise: bluebird
+            });
+            const [rows1, fields1] = await connection.execute("DELETE FROM `booking` WHERE `id_booking` = ?", [id]);
+            return 1;
+        }
+        catch (e){
+            return "Некорректные данные";
+        }
+    }
 }
 
 export default new Booking();

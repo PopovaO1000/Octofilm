@@ -22,6 +22,28 @@ class BookingController{
             }
         })
     }
+    getUserBookings(req,res){
+        const email = req.query.email;
+        BookingService.getUserBookings(email).then((result)=>{
+            if(typeof result == "string"){
+                res.send({message:result});
+            }
+            else{
+                res.send({message:result});
+            }
+        })
+    }
+    deleteBooking(req,res){
+        const id = req.query.id;
+        BookingService.deleteBooking(id).then((result)=>{
+            if(typeof result == "string"){
+                res.send({message:result});
+            }
+            else{
+                res.send({message:result});
+            }
+        })
+    }
 }
 
 export default new BookingController();

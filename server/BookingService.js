@@ -45,6 +45,20 @@ class BookingService{
         });
         return returnVal;
     }
+    async getUserBookings(clientData){
+        let returnVal;
+        await Booking.getUserBookings(clientData).then((result)=>{
+            returnVal = result;
+        });
+        return returnVal;
+    }
+    async deleteBooking(clientData){
+        let returnVal;
+        await Booking.deleteBooking(clientData).then((result)=>{
+            returnVal = result;
+        });
+        return returnVal;
+    }
 }
 
 export default new BookingService();

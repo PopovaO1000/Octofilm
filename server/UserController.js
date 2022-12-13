@@ -9,11 +9,16 @@ class UserController{
                     res.send({message:a});
                 }
                 else{
-                    res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
-                    res.cookie('name',a.name,{maxAge: 1*24*60*60*1000});
-                    res.cookie('email',a.email,{maxAge: 1*24*60*60*1000});
-                    res.cookie('login',a.login,{maxAge: 1*24*60*60*1000});
-                    res.send();
+                    try{
+                        res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
+                        res.cookie('name',a.name,{maxAge: 1*24*60*60*1000});
+                        res.cookie('email',a.email,{maxAge: 1*24*60*60*1000});
+                        res.cookie('login',a.login,{maxAge: 1*24*60*60*1000});
+                        res.send();
+                    }
+                    catch(e){
+                        return res.send({message:"Ошибка авторизации"});
+                    }
                 }
             });
         }
@@ -30,6 +35,9 @@ class UserController{
                 }
                 else{
                     res.cookie('id',a.id_user,{maxAge: 1*24*60*60*1000});
+                    res.cookie('name',a.name,{maxAge: 1*24*60*60*1000});
+                    res.cookie('email',a.email,{maxAge: 1*24*60*60*1000});
+                    res.cookie('login',a.login,{maxAge: 1*24*60*60*1000});
                     res.send();
                 }
             });

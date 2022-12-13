@@ -14,7 +14,6 @@ body{
 }
 
 #fistHeader{
-    background-image: url("../serdse_parmi.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 40vw;
@@ -22,6 +21,33 @@ body{
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-columns: 1fr 5fr 1fr;
+}
+
+.slider{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    z-index: 0;
+    width: 100vw;
+    height: 40vw;
+}
+
+.slider_1{
+    background-image: url("../serdse_parmi.jpg");
+}
+
+.slider_2 {
+    background-image: url("../img/bandit.jpg");
+}
+
+.slider_3{
+    background-image: url("../serdse_parmi.jpg");
+}
+
+.slider_4{
+    background-image: url("../img/bandit.jpg");
 }
 
 .first_gradient{

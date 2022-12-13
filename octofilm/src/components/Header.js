@@ -10,6 +10,14 @@ function Header(props) {
     return (
         //header - бэкграунд -картинка
         <header id="fistHeader">
+            <div className="sim-slider">
+                    <div className="sim-slider-list">
+                        <div className="slider slider_1 sim-slider-element"></div>
+                        <div className="slider slider_2 sim-slider-element"></div>
+                        <div className="slider slider_3 sim-slider-element"></div>
+                        <div className="slider slider_3 sim-slider-element"></div>
+                    </div>
+            </div>
             <div className="first_gradient"></div>
             <div className="second_gradient"></div>
             <div className="main_auth_block">
@@ -24,12 +32,14 @@ function Header(props) {
             <a className="main_logo_ref">
                 <img src={logo} alt="logo" className="main_logo"/>
             </a>
-                <div className="main_slider_buttons">
-                    <button className="main_slider_button"></button>
-                    <button className="main_slider_button"></button>
-                    <button className="main_slider_button"></button>
-                    <button className="main_slider_button active_slider_button"></button>
+                <div className="main_slider_buttons sim-slider-dots">
+                    <button className="main_slider_button sim-slider-dot"></button>
+                    <button className="main_slider_button sim-slider-dots"></button>
+                    <button className="main_slider_button sim-slider-dots"></button>
+                    <button className="main_slider_button active_slider_button sim-slider-dots"></button>
                 </div>
+            <script src="sim-slider.js"></script>
+            <script>new Sim()</script>
         </header>
     );
 }
